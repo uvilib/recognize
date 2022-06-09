@@ -4,7 +4,7 @@ const express = require("express");
 var WebSocketServer = new require("ws");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 
 const basePath = path.join(__dirname, "../public");
 const modelsPath = path.join(__dirname, "../public", "/labeled_images/");

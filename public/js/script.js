@@ -21,7 +21,7 @@ const unknownObj = document.getElementById("unknownObj");
 const unknownBtn = document.getElementById("unknownbtn");
 let videoStop = false;
 
-var socket = new WebSocket("ws://localhost:5000");
+var socket = new WebSocket("ws://uvilib-message.ru:5000");
 
 let labels = [];
 
