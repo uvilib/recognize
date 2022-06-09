@@ -47,6 +47,7 @@ btnUpload.addEventListener("click", () => {
 
 unknownBtn.addEventListener("click", () => {
   unknownObj.style.opacity = "0";
+  unknownObj.style.zIndex = "3";
 });
 
 addModelsBlock.addEventListener("click", () => {
@@ -159,9 +160,11 @@ async function recognizeFaces() {
       });
       if (isUnknown) {
         unknownObj.style.opacity = "1";
+        unknownObj.style.zIndex = "3";
       }
       if (isUnknown === false) {
         unknownObj.style.opacity = "0";
+        unknownObj.style.zIndex = "-1";
       }
     }, 100);
   });
@@ -170,15 +173,14 @@ async function recognizeFaces() {
 function getFaceLabel(arr) {
   switch (arr.length) {
     case 1:
-      return "лицо";
+      return "модель";
       break;
     case 2:
     case 3:
     case 4:
-      return "лица";
+      return "модели";
     default:
-      return "лиц";
-      break;
+      return "моделей";
   }
 }
 
