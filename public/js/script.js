@@ -149,7 +149,11 @@ async function recognizeFaces() {
       });
       // console.log(results);
       results.map((item) => {
-        item._label === "unknown" ? (isUnknown = true) : (isUnknown = false);
+        item._label
+          ? item._label === "unknown"
+            ? (isUnknown = true)
+            : (isUnknown = false)
+          : null;
       });
       results.forEach((result, i) => {
         const box = resizedDetections[i].detection.box;
