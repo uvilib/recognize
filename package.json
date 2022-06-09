@@ -1,0 +1,22 @@
+{
+  "name": "face-recognition-video",
+  "version": "1.0.0",
+  "description": "Face Reconition from Video using face-api.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js -L -e js,html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prashant Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^3.16.0",
+    "express": "^4.17.1",
+    "face-api.js": "^0.22.2",
+    "ws": "^8.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="apple-touch-icon" href="./logo128.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <title>Face Recognition</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="labels">
+        <span id="goList">
+          <ion-icon name="list-outline"></ion-icon> &nbsp; Перейти к листу
+          функций
+        </span>
+        <span id="addModelsBlock">
+          <ion-icon name="add-circle-outline"></ion-icon> &nbsp; Добавить модель
+        </span>
+      </div>
+    </div>
+    <div class="list-functions" id="list">
+      <div class="limiter">
+        <div class="function" id="facesVideo">
+          <div class="title"><span>Распознавание лиц на видео</span></div>
+          <div class="label">
+            Функция распознает лица по хранящимся в базе данных моделям. В
+            качестве результата выступает подпись под распознанным лицом,
+            описывающая наименование модели.
+          </div>
+        </div>
+        <div class="function" id="facesImage">
+          <div class="title"><span>Распознавание лиц на фотографии</span></div>
+          <div class="label">
+            Функция распознает лица по хранящимся в базе данных моделям.
+            Пользователь загружает изображение, после чего начинается
+            обнаружение лица или группы лиц.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="video" id="videoContainer">
+      <video id="videoInput" muted></video>
+      <span id="label-span"></span>
+      <div class="loader-spinner">
+        <div class="lds-roller" id="loader">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="video" id="imgContainer">
+      <div class="example-1" id="inputContainer">
+        <div class="form-group">
+          <label class="label">
+            <i class="material-icons"
+              ><ion-icon name="attach-outline"></ion-icon
+            ></i>
+            <span class="titleFile">Добавить файл</span>
+            <input type="file" id="imageUpload" accept="image/jpeg" />
+          </label>
+        </div>
+      </div>
+      <div class="loader-spinner">
+        <div class="lds-roller" id="loaderImage">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="addModel" id="blockModel">
+      <span>Выберите изображение с лицом вашей модели</span>
+      <div class="example-1" id="inputContainer2">
+        <div class="form-group">
+          <label class="label">
+            <i class="material-icons"
+              ><ion-icon name="attach-outline"></ion-icon
+            ></i>
+            <span class="titleFile">Добавить файл</span>
+            <input type="file" id="imageUploadModel" accept="image/jpeg" />
+          </label>
+        </div>
+      </div>
+      <span>Укажите название модели</span>
+      <input type="text" id="nameModel" />
+      <button id="btnUpload">Добавить модель</button>
+    </div>
+
+    <div class="unknown" id="unknownObj">
+      <div class="unknown-title"><h3>Внимание! Неопознанное лицо</h3></div>
+      <div class="unknown-subtitle">
+        <span
+          >Объект, стоящий перед камерой не распознан как известный программе
+          человек</span
+        >
+      </div>
+      <div class="unknown-btn" id="unknownbtn">
+        <button>Принял меры</button>
+      </div>
+    </div>
+
+    <script defer async src="./js/face-api.min.js"></script>
+    <script defer type="module" async src="./js/script.js"></script>
+  </body>
+</html>
