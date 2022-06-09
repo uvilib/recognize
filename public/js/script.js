@@ -147,14 +147,14 @@ async function recognizeFaces() {
       const results = resizedDetections.map((d) => {
         return faceMatcher.findBestMatch(d.descriptor);
       });
-      // console.log(results);
-      results.map((item) => {
-        item._label
-          ? item._label === "unknown"
-            ? (isUnknown = true)
-            : (isUnknown = false)
-          : null;
-      });
+      console.log(results);
+      results !== []
+        ? results.map((item) => {
+            item._label === "unknown"
+              ? (isUnknown = true)
+              : (isUnknown = false);
+          })
+        : null;
       results.forEach((result, i) => {
         const box = resizedDetections[i].detection.box;
         const drawBox = new faceapi.draw.DrawBox(box, {
